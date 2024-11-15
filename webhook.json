@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Calendar API - List Events",
+    "description": "API to read and list events from a specified Google Calendar.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://www.googleapis.com/calendar/v3"
+    }
+  ],
+  "paths": {
+    "/calendars/{calendarId}/events": {
+      "get": {
+        "operationId": "listCalendarEvents",
+        "summary": "Retrieve calendar events",
+        "description": "Lists all events from the specified calendar.",
+        "parameters": [
+          {
+            "name": "calendarId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the calendar to retrieve events from (use 'primary' for the primary calendar).",
+            "schema": {
+              "type": "string",
+              "default": "primary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of calendar events.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "summary": { "type": "string" },
+                          "start": {
+                            "type": "object",
+                            "properties": {
+                              "dateTime": { "type": "string", "format": "date-time" },
+                              "timeZone": { "type": "string" }
+                            }
+                          },
+                          "end": {
+                            "type": "object",
+                            "properties": {
+                              "dateTime": { "type": "string", "format": "date-time" },
+                              "timeZone": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Invalid calendar ID format" },
+          "401": { "description": "Authorization required" },
+          "404": { "description": "Calendar not found" }
+        }
+      }
+    }
+  }
+}
