@@ -1,0 +1,17 @@
+# CompanyKB — Internal Knowledge Base Chatbot
+# Install with: pip install -r requirements.txt
+
+# Streamlit web framework
+streamlit>=1.32.0
+
+# Anthropic Claude API
+anthropic>=0.25.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Document parsing — PDF support
+PyPDF2>=3.0.0
+
+# Document parsing — Word document support
+python-docx>=1.1.0
