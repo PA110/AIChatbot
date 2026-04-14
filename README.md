@@ -1,4 +1,4 @@
-# 🏢 CompanyKB — Internal Knowledge Base Chatbot
+# 🏢 YSS — Internal Knowledge Base Chatbot
 
 A secure, RAG-powered internal knowledge base chatbot built with Python and Streamlit. Employees can ask natural language questions about company policies, HR documents, IT guides, and sales materials. Admins can upload documents through a password-protected interface.
 
